@@ -8,7 +8,7 @@ public class ScoreZone : MonoBehaviour
 
 	void Start ()
     {
-        collider.isTrigger = true;
+        GetComponent<Collider>().isTrigger = true;
 	}
 
 	void OnTriggerEnter (Collider hit) 

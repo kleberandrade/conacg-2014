@@ -9,7 +9,7 @@ public class MoveOffset : MonoBehaviour
 
 	void Start ()
     {
-        materialRef = renderer.material;
+        materialRef = GetComponent<Renderer>().material;
 	}
 	
 	void Update ()

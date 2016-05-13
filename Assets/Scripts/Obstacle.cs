@@ -9,8 +9,8 @@ public class Obstacle : MonoBehaviour
 
 	void Start ()
     {
-        collider.isTrigger = true;
-        rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 	}
 
     void Update()

@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
 
 	void Start () 
     {
-        rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-        rigidbody.constraints -= RigidbodyConstraints.FreezePositionY;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        GetComponent<Rigidbody>().constraints -= RigidbodyConstraints.FreezePositionY;
 	}
 	
 	void Update ()
@@ -32,19 +32,19 @@ public class Player : MonoBehaviour
         {
             if (touch)
             {
-                rigidbody.velocity = Vector3.zero;
-                rigidbody.AddForce(Vector3.up * force);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                GetComponent<Rigidbody>().AddForce(Vector3.up * force);
                 touch = false;
             }
             else
             {
-                rigidbody.AddForce(Vector3.up * gravity);
+                GetComponent<Rigidbody>().AddForce(Vector3.up * gravity);
             }
 
-            rigidbody.velocity += Vector3.right * speed;
+            GetComponent<Rigidbody>().velocity += Vector3.right * speed;
 
-            int sign = Vector3.Cross(Vector3.right, rigidbody.velocity.normalized).z < 0 ? -1 : 1;
-            transform.rotation = Quaternion.Euler(Vector3.forward * Vector3.Angle(Vector3.right, rigidbody.velocity.normalized) * sign);
+            int sign = Vector3.Cross(Vector3.right, GetComponent<Rigidbody>().velocity.normalized).z < 0 ? -1 : 1;
+            transform.rotation = Quaternion.Euler(Vector3.forward * Vector3.Angle(Vector3.right, GetComponent<Rigidbody>().velocity.normalized) * sign);
         }
     }
 
